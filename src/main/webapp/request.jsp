@@ -29,8 +29,12 @@
 			<li>서버 Name : <%= request.getLocalName() %></li>
 			<li>서버 포트 : <%= request.getLocalPort() %></li>
 		</ul>
+		<h4>파라미터 가져오기-Index 의 링크 클릭!!</h4>
+		<p>
+			name 파라미터 값: <%= request.getParameter("name") %>,
+			hobby 파라미터 값: <%= request.getParameter("hobby") %>
+		</p>
 		<!-- 
-		
 Eclipse에서 IPv4 설정
 -메뉴에서 Run > Run Configurations 선택
 -왼쪽에서 Apache Tomcat 에서 Tomcat 항목 선택
