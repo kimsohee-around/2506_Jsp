@@ -29,6 +29,13 @@
 			<li>서버 Name : <%= request.getLocalName() %></li>
 			<li>서버 포트 : <%= request.getLocalPort() %></li>
 		</ul>
+		<!-- 
 		
+Eclipse에서 IPv4 설정
+-메뉴에서 Run > Run Configurations 선택
+-왼쪽에서 Apache Tomcat 에서 Tomcat 항목 선택
+-해당 실행 설정에서 Arguments 탭 클릭
+-VM arguments에 다음 추가:  -Djava.net.preferIPv4Stack=true
+		 -->
 </body>
 </html>
