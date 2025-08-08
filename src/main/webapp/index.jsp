@@ -13,6 +13,7 @@
 		<li><a href="test.jsp">test.jsp 로  요청 보내기</a></li>
 		<li><a href="Hello">서블릿으로 요청 보내기</a></li>
 		<li><a href="hello">서블릿으로 요청 보내기</a></li>
+		<li><a href="request.jsp">request.jsp - request 객체 속성 가져오기</a></li>
 	</ul>
 </body>
 </html>
