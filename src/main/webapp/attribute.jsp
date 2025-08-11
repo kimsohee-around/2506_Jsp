@@ -10,6 +10,7 @@
 <body>
 	<h2>BuyServlet 애트리뷰트 테스트</h2>
 	<hr>
+	<p>BuyServlet 로부터 전달 받은 request 에서 데이터(애트리뷰트)를 가져오기  </p>
 	<p>name 애트리뷰트 : <%= request.getAttribute("name") %></p>
 	<p>age 애트리뷰트 : <%= request.getAttribute("age") %></p>
 	<p>list 애트리뷰트 : <%= request.getAttribute("list") %></p>
