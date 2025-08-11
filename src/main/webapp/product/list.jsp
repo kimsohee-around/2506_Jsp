@@ -20,6 +20,10 @@
 	</ul>
 	<h3 style="margin-bottom: 0px;">키워드 검색</h3>
 	<div>
+	<!-- method="get" : 파라미터는 URL 에 추가되어 전달된다.
+	     method="post" : 요청의 바디(본문)에 포함.
+	     				개발자도구 네트워크 탭 - 페이로드 에서 확인!!
+	  -->
 		<form action="Search" method="post">
 			<input name="keyword" placeholder="상품 검색어 입력하세요."
 			 value="${param.keyword }">
