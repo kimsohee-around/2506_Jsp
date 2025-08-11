@@ -36,5 +36,11 @@ public class ProductSearchServlet extends HttpServlet {
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("product/list.jsp").forward(request, response);
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// doGet()메소드 호출
+		doGet(request, response);
+	}
 
 }

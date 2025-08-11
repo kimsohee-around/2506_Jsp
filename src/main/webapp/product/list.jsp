@@ -18,10 +18,11 @@
 		<li><a href="Search?category=B1">B1</a></li>
 		<li><a href="Search?category=B2">B2</a></li>
 	</ul>
-	<h3>키워드 검색</h3>
+	<h3 style="margin-bottom: 0px;">키워드 검색</h3>
 	<div>
-		<form action="Search">
-			<input name="keyword" placeholder="상품 검색어 입력하세요.">
+		<form action="Search" method="post">
+			<input name="keyword" placeholder="상품 검색어 입력하세요."
+			 value="${param.keyword }">
 			<button type="submit">검색</button>
 		</form>
 	</div>
