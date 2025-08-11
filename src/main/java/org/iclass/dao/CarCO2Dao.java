@@ -55,9 +55,11 @@ public class CarCO2Dao {
                                  int minWeight, int maxWeight, 
                                  int minCo2, int maxCo2) {
         List<CarDto> carList = new ArrayList<>();
+        // sql 문자열을 append 로 추가합니다.
         StringBuilder sql = new StringBuilder("SELECT * FROM tbl_carco2 WHERE 1=1");
         
-        // 동적 쿼리 생성
+        // 동적 쿼리 생성 : searchCars() 메소드의 인자로 선언된 변수가
+        //              값이 있을 때만 조건식으로 AND 추가.
         if (carBrand != null && !carBrand.trim().isEmpty()) {
             sql.append(" AND UPPER(CAR) LIKE UPPER(?)");
         }

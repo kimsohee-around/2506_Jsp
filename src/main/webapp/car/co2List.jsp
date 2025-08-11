@@ -13,9 +13,9 @@
     <div class="container">
         <h1>Car CO2 검색</h1>
         
-        <!-- 검색 폼 -->
+        <!-- 상세 검색 폼 : 검색 입력값이 모두 AND 로 연결되어 조회 -->
         <div class="search-form">
-            <form method="post" action="search">
+            <form method="post" action="Cars">
                 <div class="search-row">
                     <div class="search-group">
                         <label for="searchCar">자동차 브랜드</label>
@@ -72,19 +72,23 @@
                 </div>
             </form>
         </div>
-        
+        <!-- 전체 목록 또는 조건 검색 결과 목록 모두 carList 애트리뷰트에 저장 -->
         <!-- 검색 결과 정보 -->
         <div class="result-container">
         전체 자동차 목록: ${fn:length(carList)}건
     	</div>
         
-        <!-- 자동차 목록 테이블 -->
+        <!-- 자동차 목록 테이블 
+        c:choose 는 if ~ else 에 해당하는 core 태그
+        -->
         <c:choose>
+        <!-- test 는 조건식. carList 가 null 또는 빈 리스트가 아닐때만 실행 -->
+        <!-- if(조건식) -->
             <c:when test="${not empty carList}">
                 <table>
                     <thead>
                         <tr>
-                            <th>IDX</th>
+                            <th>NO</th>
                             <th>CAR</th>
                             <th>MODEL</th>
                             <th>VOLUME</th>
@@ -107,6 +111,7 @@
                     </tbody>
                 </table>
             </c:when>
+            <!-- else  -->
             <c:otherwise>
                <div class="no-data">
                     검색 조건에 맞는 자동차가 없습니다.
@@ -121,8 +126,8 @@
             document.querySelectorAll('input').forEach(function(input) {
                 input.value = '';
             });
-            // 전체 목록 다시 로드
-            location.href = 'search';
+            // 전체 목록 다시 로드 : Get 요청
+            location.href = 'Cars';
         }
         
         // 숫자 입력 필드 유효성 검사
