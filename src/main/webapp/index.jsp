@@ -22,5 +22,20 @@
 	    <li><a href="forward.jsp">3)forward.jsp - 요청을 URL 'hello' 로 전달  </a></li>
 	    <li><a href="Bye">request 애트리뷰트 사용 예시 - 서블릿에서 jsp로 전달하기</a></li>
 	</ul>
+	<hr>
+	<h2>dao 실행해서 화면 만들기</h2>
+	<ul>
+		<li><a href="Product">Product 목록 조회</a></li>
+	</ul>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </body>
 </html>
