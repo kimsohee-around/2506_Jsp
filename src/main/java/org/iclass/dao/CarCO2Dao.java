@@ -8,7 +8,7 @@ import org.iclass.dto.CarDto;
 
 public class CarCO2Dao {
     // Oracle DB 연결 정보
-    private final String URL = "jdbc:oracle:thin:@//localhost:1522/xepdb1";
+    private final String URL = "jdbc:oracle:thin:@//localhost:1521/xe";
     private final String USER = "c##idev"; // 실제 DB 사용자명으로 변경
     private final String PASSWORD = "1234"; // 실제 비밀번호로 변경
     

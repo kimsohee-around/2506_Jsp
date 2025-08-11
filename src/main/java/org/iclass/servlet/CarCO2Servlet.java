@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/search")
+@WebServlet("/Cars")
 @SuppressWarnings("serial")
 public class CarCO2Servlet extends HttpServlet {
     
@@ -29,12 +29,15 @@ public class CarCO2Servlet extends HttpServlet {
         // 기본적으로 전체 자동차 목록 조회
         List<CarDto> carList = carDAO.getAllCars();
         request.setAttribute("carList", carList);
-        request.getRequestDispatcher("co2List.jsp").forward(request, response);
+        request.getRequestDispatcher("car/co2List.jsp").forward(request, response);
     }
     
+    // 최대 8개의 검색 파라미터가 Get 방식으로 처리하면 url 이 길어집니다.
+    // url 에 표시되지 않도록 POST 요청으로 검색합니다.
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
+    	
         // 한글 인코딩 설정
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -73,9 +76,8 @@ public class CarCO2Servlet extends HttpServlet {
         
         // 검색 결과를 request에 저장
         request.setAttribute("carList", carList);
-        request.setAttribute("searchParams", request.getParameterMap());
         
         // JSP로 포워딩
-        request.getRequestDispatcher("co2List.jsp").forward(request, response);
+        request.getRequestDispatcher("car/co2List.jsp").forward(request, response);
     }
 }

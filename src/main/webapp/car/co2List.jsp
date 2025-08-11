@@ -82,8 +82,8 @@
         c:choose 는 if ~ else 에 해당하는 core 태그
         -->
         <c:choose>
-        <!-- test 는 조건식. carList 가 null 또는 빈 리스트가 아닐때만 실행 -->
-        <!-- if(조건식) -->
+        <%-- test 는 조건식. carList 가 null 또는 빈 리스트가 아닐때만 실행 --%>
+        <%-- if(조건식) --%>
             <c:when test="${not empty carList}">
                 <table>
                     <thead>
@@ -111,7 +111,7 @@
                     </tbody>
                 </table>
             </c:when>
-            <!-- else  -->
+            <%-- else  --%>
             <c:otherwise>
                <div class="no-data">
                     검색 조건에 맞는 자동차가 없습니다.
