@@ -18,6 +18,25 @@
 		<li><a href="Search?category=B1">B1</a></li>
 		<li><a href="Search?category=B2">B2</a></li>
 	</ul>
+	<h3>키워드 검색</h3>
+	<div>
+		<form action="Search">
+			<input name="keyword" placeholder="상품 검색어 입력하세요.">
+			<button type="submit">검색</button>
+		</form>
+	</div>
+	<div>
+		<button onclick="location.href='Products'">전체 목록</button>
+		<!-- core 태그 if : test 에 조건식 사용합니다. 
+		empty는 문자열 메소드 중에 null과 빈문자열 검사합니다.  -->
+		<c:if test="${not empty param.category }">
+		검색 카테고리 : ${param.category }
+		</c:if>
+		<!-- $ { } 는 EL 입니다. 수식/메소드 실행 결과값 출력 
+		     param 은 EL 이 파라미터를 저장하는 객체입니다.
+		 -->
+		 <hr>
+	</div>
 	<table>
 		<tr>
 			<th>번호</th>
