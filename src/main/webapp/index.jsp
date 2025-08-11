@@ -25,7 +25,7 @@
 	<hr>
 	<h2>dao 실행해서 화면 만들기</h2>
 	<ul>
-		<li><a href="Product">Product 목록 조회</a></li>
+		<li><a href="Products">Product 목록 조회</a></li>
 	</ul>
 	
 	

@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.iclass.dto.ProductDto;
 
+
 public class TblProductDao {
 
   private static final String URL = "jdbc:oracle:thin:@//localhost:1521/xe";
@@ -17,6 +18,11 @@ public class TblProductDao {
   private static final String PASSWORD = "1234";
 
   private Connection getConnection() throws SQLException {
+	  try {
+		  Class.forName("oracle.jdbc.driver.OracleDriver");
+	  }catch(ClassNotFoundException e){
+		  e.printStackTrace();
+	  }
     return DriverManager.getConnection(URL, USERNAME, PASSWORD);
   }
 
