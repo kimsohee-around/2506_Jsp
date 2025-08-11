@@ -119,3 +119,50 @@ public class CarCO2Dao {
         return carList;
     }
 }
+/*
+ 마이바티스 동적 쿼리
+ -- 매퍼 XML
+ <select id="searchCars" resultType="CarDto">
+    SELECT * FROM tbl_carco2
+    <where>
+        <if test="carBrand != null and carBrand.trim() != ''">
+            AND UPPER(CAR) LIKE CONCAT('%', UPPER(#{carBrand}), '%')
+        </if>
+        <if test="model != null and model.trim() != ''">
+            AND UPPER(MODEL) LIKE CONCAT('%', UPPER(#{model}), '%')
+        </if>
+        <if test="minVolume > 0">
+            AND VOLUME &gt;= #{minVolume}
+        </if>
+        <if test="maxVolume > 0">
+            AND VOLUME &lt;= #{maxVolume}
+        </if>
+        <if test="minWeight > 0">
+            AND WEIGHT &gt;= #{minWeight}
+        </if>
+        <if test="maxWeight > 0">
+            AND WEIGHT &lt;= #{maxWeight}
+        </if>
+        <if test="minCo2 > 0">
+            AND CO2 &gt;= #{minCo2}
+        </if>
+        <if test="maxCo2 > 0">
+            AND CO2 &lt;= #{maxCo2}
+        </if>
+    </where>
+    ORDER BY CAR, MODEL
+</select>
+
+-- 인터페이스
+ List<CarDto> searchCars(@Param("carBrand") String carBrand,
+                        @Param("model") String model,
+                        @Param("minVolume") int minVolume,
+                        @Param("maxVolume") int maxVolume,
+                        @Param("minWeight") int minWeight,
+                        @Param("maxWeight") int maxWeight,
+                        @Param("minCo2") int minCo2,
+                        @Param("maxCo2") int maxCo2);
+ 
+  
+  
+ */
