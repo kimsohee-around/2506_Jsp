@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import org.iclass.dao.CarCO2Dao;
 import org.iclass.dto.CarDto;
 
 @WebServlet("/CarSave")
@@ -30,7 +31,13 @@ public class CarCo2SaveServlet extends HttpServlet {
 				Integer.parseInt(carCo2)
 				);
 		System.out.println("모든 파라미터 값 : " + dto);
-		
+		CarCO2Dao dao = new CarCO2Dao();
+		if(dao.insert(dto)==1) {
+			System.out.println("새로운 데이터 추가 완료!!");
+		}
+		// 사용자에게 URL Cars 로 다시 요청을 보내도록 응답 전달
+		// 목록 페이지로 이동
+		response.sendRedirect("Cars");
 	}
 
 }

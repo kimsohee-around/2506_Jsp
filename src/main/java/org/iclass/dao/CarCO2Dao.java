@@ -23,6 +23,27 @@ public class CarCO2Dao {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
     
+    public int insert(CarDto dto) {
+    	String sql="insert into tbl_carco2 values(?,?,?,?,?)";
+    	int result =0;
+    	try(Connection conn = getConnection();
+    		PreparedStatement pstat = conn.prepareStatement(sql);){
+    		
+    		pstat.setString(1, dto.getCar());
+    		pstat.setString(2, dto.getModel());
+    		pstat.setInt(3, dto.getVolume());
+    		pstat.setInt(4, dto.getWeight());
+    		pstat.setInt(5, dto.getCo2());
+
+    		result = pstat.executeUpdate();
+    	}catch (SQLException e) {
+			// TODO: handle exception
+    		e.printStackTrace();
+		}
+    	return result;
+    }
+    
+    
     // 전체 자동차 목록 조회
     public List<CarDto> getAllCars() {
         List<CarDto> carList = new ArrayList<>();
