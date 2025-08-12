@@ -26,7 +26,8 @@ public class CarCo2SaveServlet extends HttpServlet {
 		String carCo2 = request.getParameter("carCo2");
 		
 		CarDto dto = new CarDto(carBrand, carModel, 
-				!carVolume.trim().isEmpty()? Integer.parseInt(carVolume):0, 
+				// 서버단에서 유효성 검사하는 예시
+				!carVolume.trim().isEmpty()? Integer.parseInt(carVolume):null, 
 				Integer.parseInt(carWeight), 
 				Integer.parseInt(carCo2)
 				);

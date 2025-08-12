@@ -47,7 +47,7 @@ public class CarCO2Dao {
     // 전체 자동차 목록 조회
     public List<CarDto> getAllCars() {
         List<CarDto> carList = new ArrayList<>();
-        String sql = "SELECT * FROM tbl_carco2";
+        String sql = "SELECT * FROM tbl_carco2 order by co2";
         
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
