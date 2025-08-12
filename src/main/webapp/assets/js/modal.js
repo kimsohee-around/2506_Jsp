@@ -3,12 +3,10 @@
 
 // 폼 submit
 function submitForm(){
-	// input 요소 가져오기
-/*	const carBrand = document.getElementById("carBrand");
-	const carModel = document.getElementById("carModel");
-	const carVolume = document.getElementById("carVolume");
-	const carWeight = document.getElementById("carWeight");
-	const carCo2 = document.getElementById("carCo2");*/
+	// 유효성 검사 통과 확인
+	if(!validateForm()){
+		return;     // 유효검사 결과 거짓이면 submit 종료
+	}
 	// form 태그 만들기
 	const form = document.createElement('form')
 	form.method='POST'  // 저장은 반드시 POST
@@ -20,11 +18,6 @@ function submitForm(){
 		input.name = carData[index]    // name 속성 값 
 		form.appendChild(input)			// form 태그의 자식으로 추가하기
 	})
-	
-/*	form.appendChild(carModel)
-	form.appendChild(carVolume)
-	form.appendChild(carWeight)
-	form.appendChild(carCo2)*/
 	
 	document.body.appendChild(form)
 	form.submit();      // form 요소의 submit() 실행
@@ -55,3 +48,65 @@ function submitForm(){
      document.getElementById('carCo2').value = '';
      
  }
+ 
+ // 에러 상태 초기화
+ function clearErrors() {
+     const inputs = document.querySelectorAll('.form-input');
+     const errors = document.querySelectorAll('.error-message');
+     
+     inputs.forEach(input => input.classList.remove('error'));
+     errors.forEach(error => error.style.display = 'none');
+ }
+ 
+ // 유효성 검사
+ function validateForm() {
+      let isValid = true;
+      clearErrors();
+
+      const carBrand = document.getElementById('carBrand').value.trim();
+      const carModel = document.getElementById('carModel').value.trim();
+      const carVolume = document.getElementById('carVolume').value;
+      const carWeight = document.getElementById('carWeight').value;
+      const carCo2 = document.getElementById('carCo2').value;
+
+      // 자동차 브랜드 검사
+      if (!carBrand) {   // 값이 없으면 참
+          showError('carBrand', 'carBrandError');
+          isValid = false;
+      }
+
+      // 모델명 검사
+      if (!carModel) {
+          showError('carModel', 'carModelError');
+          isValid = false;
+      }
+
+      // 배기량 검사
+      if (!carVolume || carVolume <= 0) {
+          showError('carVolume', 'carVolumeError');
+          isValid = false;
+      }
+
+      // 무게 검사
+      if (!carWeight || carWeight <= 0) {
+          showError('carWeight', 'carWeightError');
+          isValid = false;
+      }
+
+      // CO2 배출량 검사
+      if (!carCo2 || carCo2 <= 0) {
+          showError('carCo2', 'carCo2Error');
+          isValid = false;
+      }
+
+      return isValid;
+  }
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
