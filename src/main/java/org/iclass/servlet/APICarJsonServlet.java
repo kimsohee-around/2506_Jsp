@@ -1,7 +1,9 @@
 package org.iclass.servlet;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.channels.Pipe.SourceChannel;
 import java.util.List;
 
 import org.iclass.dao.CarCO2Dao;
@@ -54,9 +56,18 @@ public class APICarJsonServlet extends HttpServlet {
         }
 	}
 
+	// 요청 json 문자열을 dto 객체로 변환하여 dao 메소드 실행
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// 문자열 받아오기
+		StringBuilder jsonBuffer = new StringBuilder();
+		// 문자 기반 입력 스트림 : request 로부터 입력 받기
+		BufferedReader reader = request.getReader();
+		String line;
+		while((line = reader.readLine()) != null ) {  // json 문자열 라인단위 읽기
+			jsonBuffer.append(line);
+		}
+		System.out.println("json 문자열 :" + jsonBuffer.toString());
+		
 	}
 
 }

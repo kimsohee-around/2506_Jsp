@@ -1,5 +1,55 @@
 // 전역 변수
 //     let carData = [];
+// 비동기 통신 저장
+function fetchAPI(){
+	// 유효성 검사 통과 확인
+	if(!validateForm()){
+			return;     // 유효검사 결과 '거짓'이면 submit 종료
+	}
+	
+	const carBrand = document.getElementById('carBrand').value
+	const carModel = document.getElementById('carModel').value
+	const carVolume = document.getElementById('carVolume').value
+	const carWeight = document.getElementById('carWeight').value
+	const carCo2= document.getElementById('carCo2').value
+	
+	// 자바스크립트 객체로 저장하기. dto 클래스의 변수명과 일치하는 속성이름!!
+	const data = {
+		car : carBrand,
+		model : carModel,
+		volume : carVolume,
+		weight : carWeight,
+		co2 : carCo2
+	}
+	
+	const options = {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data)   // JS객체를 Json 문자열로 변환
+		// 백엔드(서블릿)에서 받는 데이터는 json 문자열
+	}
+	
+	const url = 'http://localhost:8080/jspProject/api/cars'
+	// 데이터 저장 요청 보내기(비동기)
+	fetch(url,options)
+	.then(response => {
+		if(response.ok){   //응답코드 2xx (200,201...) 이면 ok 가 참
+			closeModal()	
+			alert('데이터가 성공적으로 저장되었습니다.')
+			window.location.reload()
+		}else {
+			throw new Error('데이터 저장 실패!!')
+		}
+		//return response.json()   // json 을 JS 객체로 변환
+	})
+	.catch(error => {
+		console.error("fetch 에러 : " + error)
+	})
+	
+}
+
 
 // 폼 submit
 function submitForm(){
