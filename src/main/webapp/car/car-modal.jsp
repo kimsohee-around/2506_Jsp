@@ -56,7 +56,8 @@
 
                 <div class="button-group">
                     <button type="button" class="btn btn-cancel" onclick="closeModal()">취소</button>
-                    <button type="button" class="btn btn-submit" id="submitBtn" onclick="submitForm()">추가</button>
+                    <button type="button" class="btn btn-submit" id="submitBtn" 
+                     onclick="submitForm()">추가</button>
                 </div>
             </div>
         </div>
