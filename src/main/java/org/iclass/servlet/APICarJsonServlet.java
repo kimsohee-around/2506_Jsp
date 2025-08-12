@@ -40,7 +40,7 @@ public class APICarJsonServlet extends HttpServlet {
         	Gson gson = new Gson();
         	// list 자바 객체를 json 문자열(String 타입)로 바꾸기
         	String jsonString = gson.toJson(list);
-        	
+        	// 문자 기반 출력 스트림
         	PrintWriter out = response.getWriter();
         	out.print(jsonString);
         	out.flush();
@@ -67,6 +67,16 @@ public class APICarJsonServlet extends HttpServlet {
 			jsonBuffer.append(line);
 		}
 		System.out.println("json 문자열 :" + jsonBuffer.toString());
+		// Gson : json 문자열을 dto 객체로 변환
+		Gson gson = new Gson();
+		CarDto dto = gson.fromJson(jsonBuffer.toString(), CarDto.class);
+		// dao
+		CarCO2Dao dao = new CarCO2Dao();
+		if(dao.insert(dto)==1) {
+			response.setStatus(HttpServletResponse.SC_CREATED);   // 201 응답(저장)
+		}else {
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR); // 500
+		}
 		
 	}
 

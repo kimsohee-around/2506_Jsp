@@ -38,7 +38,7 @@ function fetchAPI(){
 		if(response.ok){   //응답코드 2xx (200,201...) 이면 ok 가 참
 			closeModal()	
 			alert('데이터가 성공적으로 저장되었습니다.')
-			window.location.reload()
+			window.location.reload()    // 기존 페이지 새로고침
 		}else {
 			throw new Error('데이터 저장 실패!!')
 		}
