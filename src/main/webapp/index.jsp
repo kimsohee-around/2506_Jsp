@@ -28,7 +28,11 @@
 	jsp 가 애트리뷰트를 서블릿에서 받아오는 예시를 하고 있기 때문입니다. -->
 	<ul>
 		<li><a href="Products">Product 목록 조회</a></li>
-		<li><a href="Cars">Car CO2 상세 검색</a></li>
+		<li><a href="Cars">Car CO2 상세 검색과 추가</a></li>
+		<li><a href="CarApiTest.html">API 요청 예시</a></li>
 	</ul>
 </body>
 </html>
+
+
+
